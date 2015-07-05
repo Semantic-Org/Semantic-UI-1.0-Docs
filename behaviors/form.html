@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="image_src" type="image/jpeg" href="/images/logo.png" />
+
+<!-- Site Properities -->
+<meta name="generator" content="DocPad v6.78.1" />
+<title>Form Validation | Semantic UI</title>
+
+<meta name="description" content="A form validation behavior checks data against a set of criteria before passing it along to the server" />
+<meta name="keywords" content="html5, ui, library, framework, javascript" />
+  
+<script>
+(function () {
+  var
+    eventSupport = ('querySelector' in document && 'addEventListener' in window)
+    jsonSupport  = (typeof JSON !== 'undefined'),
+    jQuery       = (eventSupport && jsonSupport)
+      ? '/javascript/library/jquery.min.js'
+      : '/javascript/library/jquery.legacy.min.js'
+  ;
+  document.write('<script src="' + jQuery + '"><\/script>');
+}());
+</script>
+
+
+<script src="/javascript/library/easing.min.js"></script>
+<script src="/javascript/library/highlight.min.js"></script>
+<script src="/javascript/library/highlight.languages.min.js"></script>
+<script src="/javascript/library/history.min.js"></script>
+<script src="/javascript/library/tablesort.min.js"></script>
+
+
+
+<script src="/dist/semantic.min.js"></script>
+
+
+
+<script src="/javascript/docs.js"></script>
+
+  
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/docs.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/rtl.css">
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+<script type="text/javascript">
+  window.liveSettings = {
+    api_key    : '9ede3015b9f84c1aabc81ab839c55d74',
+    parse_attr : [
+      'data-title',
+      'data-content'
+    ],
+    detectlang   : false,
+    autocollect  : true,
+    ignore_tags  : ['i', 'code', 'pre'],
+    parse_attr   : ['data-title', 'data-content', 'data-text'],
+    ignore_class : ['code', 'anchor']
+  };
+</script>
+<script type="text/javascript" src="http://cdn.transifex.com/live.js"></script>
+
+</head>
+<body id="example" class="form" ontouchstart="">
+  
+  
+
+
+
+
+
+
+<div class="ui vertical inverted sidebar menu" id="toc">
+  <div class="item">
+    <a class="ui logo icon image" href="/">
+      <img src="/images/logo.png">
+    </a>
+    <a href="/"><b>UI Docs</b></a>
+  </div>
+  <a class="item" href="https://github.com/Semantic-Org/Semantic-UI/archive/1.12.2.zip">
+    <i class="download icon"></i> <b>Download</b>
+  </a>
+  <a class="item" href="/kitchen-sink.html">
+    <i class="cubes icon"></i> <b>All UI</b>
+  </a>
+  <div class="item">
+    <div class="ui small  inverted header">Globals</div>
+    <div class="menu">
+      
+        <a class="item" href="/globals/reset.html">
+          Reset
+          
+        </a>
+      
+        <a class="item" href="/globals/site.html">
+          Site
+          
+        </a>
+      
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small  inverted header">Elements</div>
+    <div class="menu">
+      
+        <a class="item" href="/elements/button.html">
+          Button
+          
+        </a>
+      
+        <a class="item" href="/elements/divider.html">
+          Divider
+          
+        </a>
+      
+        <a class="item" href="/elements/flag.html">
+          Flag
+          
+        </a>
+      
+        <a class="item" href="/elements/header.html">
+          Header
+          
+        </a>
+      
+        <a class="item" href="/elements/icon.html">
+          Icon
+          
+        </a>
+      
+        <a class="item" href="/elements/image.html">
+          Image
+          
+        </a>
+      
+        <a class="item" href="/elements/input.html">
+          Input
+          
+        </a>
+      
+        <a class="item" href="/elements/label.html">
+          Label
+          
+        </a>
+      
+        <a class="item" href="/elements/list.html">
+          List
+          
+        </a>
+      
+        <a class="item" href="/elements/loader.html">
+          Loader
+          
+        </a>
+      
+        <a class="item" href="/elements/rail.html">
+          Rail
+          
+        </a>
+      
+        <a class="item" href="/elements/reveal.html">
+          Reveal
+          
+        </a>
+      
+        <a class="item" href="/elements/segment.html">
+          Segment
+          
+        </a>
+      
+        <a class="item" href="/elements/step.html">
+          Step
+          
+        </a>
+      
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small  inverted header">Collections</div>
+    <div class="menu">
+      
+        <a class="item" href="/collections/breadcrumb.html">
+          Breadcrumb
+          
+        </a>
+      
+        <a class="item" href="/collections/form.html">
+          Form
+          
+        </a>
+      
+        <a class="item" href="/collections/grid.html">
+          Grid
+          
+        </a>
+      
+        <a class="item" href="/collections/menu.html">
+          Menu
+          
+        </a>
+      
+        <a class="item" href="/collections/message.html">
+          Message
+          
+        </a>
+      
+        <a class="item" href="/collections/table.html">
+          Table
+          
+        </a>
+      
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small  inverted header">Views</div>
+    <div class="menu">
+      
+        <a class="item" href="/views/advertisement.html">
+          Advertisement
+          
+        </a>
+      
+        <a class="item" href="/views/card.html">
+          Card
+          
+        </a>
+      
+        <a class="item" href="/views/comment.html">
+          Comment
+          
+        </a>
+      
+        <a class="item" href="/views/feed.html">
+          Feed
+          
+        </a>
+      
+        <a class="item" href="/views/item.html">
+          Item
+          
+        </a>
+      
+        <a class="item" href="/views/statistic.html">
+          Statistic
+          
+        </a>
+      
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small  inverted header">Modules</div>
+    <div class="menu">
+      
+        <a class="item" href="/modules/accordion.html">
+          Accordion
+          
+        </a>
+    
+        <a class="item" href="/modules/checkbox.html">
+          Checkbox
+          
+        </a>
+    
+        <a class="item" href="/modules/dimmer.html">
+          Dimmer
+          
+        </a>
+    
+        <a class="item" href="/modules/dropdown.html">
+          Dropdown
+          
+        </a>
+    
+        <a class="item" href="/modules/modal.html">
+          Modal
+          
+        </a>
+    
+        <a class="item" href="/modules/nag.html">
+          Nag
+          
+          <span class="ui mini empty yellow circular ui label"></span>
+          
+        </a>
+    
+        <a class="item" href="/modules/popup.html">
+          Popup
+          
+        </a>
+    
+        <a class="item" href="/modules/progress.html">
+          Progress
+          
+        </a>
+    
+        <a class="item" href="/modules/rating.html">
+          Rating
+          
+        </a>
+    
+        <a class="item" href="/modules/search.html">
+          Search
+          
+        </a>
+    
+        <a class="item" href="/modules/shape.html">
+          Shape
+          
+        </a>
+    
+        <a class="item" href="/modules/sidebar.html">
+          Sidebar
+          
+        </a>
+    
+        <a class="item" href="/modules/sticky.html">
+          Sticky
+          
+        </a>
+    
+        <a class="item" href="/modules/tab.html">
+          Tab
+          
+        </a>
+    
+        <a class="item" href="/modules/transition.html">
+          Transition
+          
+        </a>
+    
+        <a class="item" href="/modules/video.html">
+          Video
+          
+          <span class="ui mini empty yellow circular ui label"></span>
+          
+        </a>
+    
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small active  inverted header">Behaviors</div>
+    <div class="menu">
+      
+        <a class="item" href="/behaviors/api.html">
+          API
+          
+        </a>
+      
+        <a class="active item" href="/behaviors/form.html">
+          Form Validation
+          
+        </a>
+      
+        <a class="item" href="/behaviors/visibility.html">
+          Visibility
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui black big launch right attached fixed button">
+  <i class="content icon"></i>
+  <span class="text">Menu</span>
+</div>
+  
+
+
+
+
+<div class="ui fixed inverted main menu">
+  <div class="container">
+    <a class="launch item">
+      <i class="content icon"></i>
+      Menu
+    </a>
+    
+      <div class="title item">
+        <b>UI Behavior:</b> Form Validation
+      </div>
+      
+      <a class="icon item" href="/behaviors/api.html"><i class="left chevron icon"></i></a>
+      
+      <div class="section ui page dropdown link item">
+        <span class="count">2 of 3</span>
+        <div class="menu">
+          
+            <a class="item" href="/behaviors/api.html">
+              API
+            </a>
+          
+            <a class="active item" href="/behaviors/form.html">
+              Form Validation
+            </a>
+          
+            <a class="item" href="/behaviors/visibility.html">
+              Visibility
+            </a>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/behaviors/visibility.html"><i class="right chevron icon"></i></a>
+      
+    
+    <div class="right menu">
+      <div class="vertically fitted borderless item">
+        
+        <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+        
+      </div>
+      <a class="popup icon music item" data-content="Play Music">
+        <i class="alternate music icon"></i>
+      </a>
+      <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
+        <i class="alternate github icon"></i>
+      </a>
+      <div class="ui language dropdown item" id="languages" data-content="Select Language">
+        <i class="world icon"></i>
+        <div class="menu">
+  <div class="item" data-percent="100" data-value="en"     data-english="English">English</div>
+  <div class="item" data-percent="94" data-value="da"     data-english="Danish">dansk</div>
+  <div class="item" data-percent="94"  data-value="es"     data-english="Spanish">Español</div>
+  <div class="item" data-percent="34"  data-value="zh"     data-english="Chinese">简体中文</div>
+  <div class="item" data-percent="54"  data-value="zh_TW"  data-english="Chinese (Taiwan)">中文 (臺灣)</div>
+  <div class="item" data-percent="79"  data-value="fa"     data-english="Persian">پارسی</div>
+  <div class="item" data-percent="41"  data-value="fr"     data-english="French">Français</div>
+  <div class="item" data-percent="37"  data-value="el"     data-english="Greek">ελληνικά</div>
+  <div class="item" data-percent="37"  data-value="ru"     data-english="Russian">Русский</div>
+  <div class="item" data-percent="36"  data-value="de"     data-english="German">Deutsch</div>
+  <div class="item" data-percent="23"  data-value="it"     data-english="Italian">Italiano</div>
+  <div class="item" data-percent="21"  data-value="nl"     data-english="Dutch">Nederlands</div>
+  <div class="item" data-percent="19"  data-value="pt_BR"  data-english="Portuguese">Português(BR)</div>
+  <div class="item" data-percent="17"  data-value="id"     data-english="Indonesian">Indonesian</div>
+  <div class="item" data-percent="12"  data-value="lt"     data-english="Lithuanian">Lietuvių</div>
+  <div class="item" data-percent="11"  data-value="tr"     data-english="Turkish">Türkçe</div>
+  <div class="item" data-percent="10"  data-value="kr"     data-english="Korean">한국어</div>
+  <div class="item" data-percent="7"   data-value="ar"     data-english="Arabic">العربية</div>
+  <div class="item" data-percent="6"   data-value="hu"     data-english="Hungarian">Magyar</div>
+  <div class="item" data-percent="6"   data-value="vi"     data-english="Vietnamese">tiếng Việt</div>
+  <div class="item" data-percent="5"   data-value="sv"     data-english="Swedish">svenska</div>
+  <div class="item" data-precent="4"   data-value="pl"     data-english="Polish">polski</div>
+  <div class="item" data-percent="6"   data-value="ja"     data-english="Japanese">日本語</div>
+  <div class="item" data-percent="0"   data-value="ro"     data-english="Romanian">românește</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="pusher">
+    <div class="full height">
+      <script src="/dist/components/form.js"></script>
+<script src="/javascript/validate-form.js"></script>
+
+
+
+<div class="tab  header segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui header">
+        Form Validation
+        
+      </h1>
+
+      <p>A form validation behavior checks data against a set of criteria before passing it along to the server</p>
+      
+      
+      
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=semanticuicom" id="_carbonads_js"></script>
+      
+    </div>
+    
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+      <div class="three item tabular ui menu">
+        
+          <a class="active item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+      
+      <div class="fluid vertical ui menu">
+        
+          <a class="active item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="ui active tab" data-tab="usage">
+
+    <h2 class="ui dividing header">Usage</h2>
+
+    <div class="example">
+      <h4 class="ui header">Validation Definitions</h4>
+      <p>Form validation requires passing in a validation object with the rules required to validate your form.</p>
+      <div class="ui ignored info message">
+        A validation object includes a list of form elements, and rules to validate each against. Fields are matched by either the <code>id</code> tag, <code>name</code> tag, or the <code>data-validate</code> metadata matching the identifier provided in the settings object.
+      </div>
+      <div class="ignore code">
+      $('.ui.form')
+        .form({
+          name: {
+            identifier  : 'name',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please enter your name'
+              }
+            ]
+          },
+          gender: {
+            identifier  : 'gender',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please select a gender'
+              }
+            ]
+          },
+          username: {
+            identifier : 'username',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please enter a username'
+              }
+            ]
+          },
+          password: {
+            identifier : 'password',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please enter a password'
+              },
+              {
+                type   : 'length[6]',
+                prompt : 'Your password must be at least 6 characters'
+              }
+            ]
+          },
+          terms: {
+            identifier : 'terms',
+            rules: [
+              {
+                type   : 'checked',
+                prompt : 'You must agree to the terms and conditions'
+              }
+            ]
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <p>Tell Us About Yourself</p>
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <select class="ui dropdown" name="gender">
+              <option value="">Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" />
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+      </div>
+    </form>
+
+    <div class="no example">
+      <h4 class="ui header">
+        Validation Rules
+      </h4>
+        <p>Validation rules are a set of conditions required to validate a field</p>
+      <div class="ui info message">Validation rules are found in <code>$.fn.form.settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
+      <div class="in red message">To pass parameters to a rule, use bracket notation in your settings object. For example <code>type: 'not[dog]'</code></div>
+      <table class="ui celled sortable basic table">
+        <thead>
+          <th class="four wide">Name</th>
+          <th>Validates</th>
+          <th>Example</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>checked</td>
+            <td>A checkbox field is checked</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>contains</td>
+            <td>A field contains text (case insensitive)</td>
+            <td><code>contains[foo]</code></td>
+          </tr>
+          <tr>
+            <td>containsExactly</td>
+            <td>A field contains exactly text</td>
+            <td><code>containsExactly[foo]</code></td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>A field is a valid email address</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>empty</td>
+            <td>A field is empty</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>integer</td>
+            <td>A field is an integer value</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>is</td>
+            <td>A field matches a value (case insensitive)</td>
+            <td><code>is[foo]</code></td>
+          </tr>
+          <tr>
+            <td>isExactly</td>
+            <td>A field is exactly text</td>
+            <td><code>isExactly[foo]</code></td>
+          </tr>
+          <tr>
+            <td>length</td>
+            <td>A field is longer than a length</td>
+            <td><code>length[6]</code></td>
+          </tr>
+          <tr>
+            <td>match</td>
+            <td>A field matches the value of another validation field</td>
+            <td><code>match[password]</code></td>
+          </tr>
+          <tr>
+            <td>maxLength</td>
+            <td>A field is less than a max length</td>
+            <td><code>maxLength[50]</code></td>
+          </tr>
+          <tr>
+            <td>not</td>
+            <td>A field does not match a value (case insensitive)</td>
+            <td><code>not[foo]</code></td>
+          </tr>
+          <tr>
+            <td>notExactly</td>
+            <td>A field is not exactly text</td>
+            <td><code>notExactly[foo]</code></td>
+          </tr>
+          <tr>
+            <td>url</td>
+            <td>A field is a url</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="inline example">
+      <h4 class="ui header">Keyboard Shortcuts & Events</h4>
+      <p>
+        Form will automatically attach events to specially labeled form fields
+      </p>
+      <ul class="ui list">
+        <li>Fields will blur on <code>escape</code> key press</li>
+        <li>Fields will submit form on <code>enter</code></li>
+        <li>Submit events will be attached to <code>click</code> on any element inside the form with class  <code>submit</code></li>
+        <li>Reset events will be attached to <code>click</code> on any element inside the form with class <code>reset</code></li>
+        <li>Clear events will be attached to <code>click</code> on any element inside the form with class <code>clear</code></li>
+      </ul>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Test Field</label>
+          <input placeholder="Test Field" name="name" type="text">
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui reset button">Reset</div>
+        <div class="ui clear button">Clear</div>
+      </form>
+    </div>
+
+    <div class="inline example">
+      <h4 class="ui header">Reset / Clear Fields</h4>
+      <p>
+        Calling <code>$('form').form('reset')</code>, or clicking any reset element will return all form values to their <em>default value</em>. This is the value the form fields were set to when the page loaded.
+      </p>
+      <p>Calling <code>$('form').form('clear')</code> will remove all values from form fields and reset dropdowns to placeholder text</p>
+      <div class="ui ignored info message">
+        Reset and clear will modify all form fields, not just those which have validation rules
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input name="gender" type="hidden">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input name="terms" type="checkbox">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui reset button">Reset</div>
+        <div class="ui clear button">Clear</div>
+      </form>
+    </div>
+
+    <div class="writing no example">
+      <h4 class="ui header">Writing Values</h4>
+      <p>
+        Form includes behaviors for reading from and writing to form fields.
+      </p>
+      <div class="code" data-demo="true">
+      $('.writing.example form')
+        // set one value
+        .form('set value', 'name', 'Jack')
+
+        // set several values
+        .form('set values', {
+          name     : 'Jack',
+          gender   : 'male',
+          colors   : ['red', 'grey'],
+          username : 'jlukic',
+          password : 'youdliketoknow',
+          terms    : true
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input name="gender" type="hidden">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password">
+        </div>
+        <div class="inline fields">
+          <label for="colors">Favorite Colors</label>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="red" />
+              <label>Red</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="blue" />
+              <label>Blue</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="green" />
+              <label>Green</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="grey" />
+              <label>Grey</label>
+            </div>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input name="terms" type="checkbox">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui clear button">Clear</div>
+      </form>
+    </div>
+
+    <div class="get no example">
+      <h4 class="ui header">Getting Values</h4>
+      <p>
+        You can also read values from form fields using <code>get value</code> and <code>get values</code>
+      </p>
+      <div class="ui ignored info message">
+        Although <code>get values</code> allows you to use any matching identifier, returned values will always use the corresponding <code>name</code> attribute of the element.
+      </div>
+      <div class="code" data-demo="true">
+      var
+        $form = $('.get.example form'),
+        // get one value
+        colors = $form.form('get value', 'colors'),
+        // get list of values
+        fields = $form.form('get values', ['name', 'colors']),
+        // get all values
+        allFields = $form.form('get values')
+      ;
+      console.log(colors);
+      console.log(fields);
+      console.log(allFields);
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input name="gender" type="hidden">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password">
+        </div>
+        <div class="inline fields">
+          <label for="colors">Favorite Colors</label>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="red" />
+              <label>Red</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="blue" />
+              <label>Blue</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="green" />
+              <label>Green</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="grey" />
+              <label>Grey</label>
+            </div>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input name="terms" type="checkbox">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+    <div class="dropdown example">
+      <h4 class="ui header">Validating Dropdowns</h4>
+      <p><a href="/modules/dropdown.html">Dropdowns</a> can also be validated like other form fields. Simply match the validation rule to the hidden input associated with the dropdown</p>
+      <div class="ignored  code">
+      $('.ui.dropdown')
+        .dropdown()
+      ;
+      $('.ui.form')
+        .form({
+          gender: {
+            identifier  : 'gender',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please enter a gender'
+              }
+            ]
+          },
+          name: {
+            identifier  : 'name',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please enter your name'
+              }
+            ]
+          },
+        })
+      ;
+      </div>
+      <form class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input type="text" name="name">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui fluid selection dropdown">
+              <input type="hidden" name="gender">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="1">Male</div>
+                <div class="item" data-value="0">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+      </form>
+    </div>
+
+    <div class="optional example">
+      <h4 class="ui header">Optional Validation Fields</h4>
+      <p>Adding the parameter <code>optional: true</code> will only add your validation rules when the field is <b>not empty</b>.
+      <div class="ignored code">
+      $('.ui.form')
+        .form({
+          email: {
+            identifier : 'email',
+            rules: [
+              {
+                type   : 'email',
+                prompt : 'Please enter a valid e-mail'
+              }
+            ]
+          },
+          ccEmail: {
+            identifier : 'cc-email',
+            optional   : true,
+            rules: [
+              {
+                type   : 'email',
+                prompt : 'Please enter a valid second e-mail'
+              }
+            ]
+          },
+        })
+      ;
+      </div>
+      <form class="ui form">
+        <p>Your tickets are all ready to print. Where would you like to send a receipt?</p>
+        <div class="fields">
+          <div class="ten wide field">
+            <label>E-mail</label>
+            <input type="text" name="email">
+          </div>
+          <div class="six wide field">
+            <label>Additional E-mail</label>
+            <input type="text" name="cc-email">
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+    <div class="example">
+      <h4 class="ui header">Displaying Error Messages</h4>
+      <p>Forms that contain a <a href="/collections/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
+      <div class="ui ignored info message">The template for error messages can be modified by adjusting settings.template.error</div>
+
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" name="first-name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" name="last-name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" />
+            <label>I agree to the Terms and Conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+    <div class="inline example">
+      <h4 class="ui header">Validating on Blur and other Events</h4>
+      <p>Validation messages can also appear inline. UI Forms automatically format <a href="/elements/label.html">labels</a> with the class name <code>prompt</code>. These validation prompts are also set to appear on input change instead of form submission.</p>
+      <div class="ui ignored warning message">This example also uses a different validation event. Each element will be validated on input blur instead of the default form submit.</div>
+      <div class="code" data-type="javascript">
+        $('.ui.form')
+          .form(validationRules, {
+            inline : true,
+            on     : 'blur'
+          })
+        ;
+      </div>
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" name="first-name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" name="last-name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" />
+            <label>I agree to the Terms and Conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+      </form>
+    </div>
+
+    <div class="dog example">
+      <h4 class="ui header">Creating Custom Validation</h4>
+      <p>You can use multiple arbitrary rules to validate a form</p>
+      <div class="ignore code">
+      $('.ui.form')
+        .form({
+          dog: {
+            identifier: 'dog',
+            rules: [
+              {
+                type: 'empty',
+                prompt: 'You must have a dog to add'
+              },
+              {
+                type: 'contains[fluffy]',
+                prompt: 'I only want you to add fluffy dogs!'
+              },
+              {
+                type: 'not[mean]',
+                prompt: 'Why would you add a mean dog to the list?'
+              }
+            ]
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="field">
+          <label>Dog</label>
+          <input placeholder="Dog" name="dog" type="text">
+        </div>
+        <div class="ui blue submit button">
+          <i class="add icon"></i>
+          Add Dog
+        </div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+    <h2 class="ui dividing header">Behavior</h2>
+
+    All the following behaviors can be called using the syntax
+
+    <div class="code" data-type="javascript">
+      $('.foo').form('behavior name', argumentOne, argumentTwo)
+    </div>
+
+    <table class="ui definition celled table">
+      <tr>
+        <td>submit</td>
+        <td>Submits selected form</td>
+      </tr>
+      <tr>
+        <td>validate form</td>
+        <td>Validates form and calls onSuccess or onFailure</td>
+      </tr>
+      <tr>
+        <td>get change event</td>
+        <td>gets browser property change event</td>
+      </tr>
+      <tr>
+        <td>get field(id)</td>
+        <td>Returns element with matching name, id, or data-validate metadata to ID</td>
+      </tr>
+      <tr>
+        <td>get value(id)</td>
+        <td>Returns value of element with id</td>
+      </tr>
+      <tr>
+        <td>get values(ids)</td>
+        <td>Returns object of element values that match array of ids. If no IDS are passed will return all fields</td>
+      </tr>
+      <tr>
+        <td>set value(id)</td>
+        <td>Sets value of element with id</td>
+      </tr>
+      <tr>
+        <td>set values(values)</td>
+        <td>Sets key/value pairs from passed values object to matching ids</td>
+      </tr>
+      <tr>
+        <td>get validation(element)</td>
+        <td>Returns validation rules for a given field</td>
+      </tr>
+      <tr>
+        <td>has field(identifier)</td>
+        <td>Returns whether a field exists</td>
+      </tr>
+      <tr>
+        <td>add errors(errors)</td>
+        <td>Adds errors to form, given an array errors</td>
+      </tr>
+    </table>
+
+    <h2 class="ui dividing header">Settings</h2>
+
+    <div class="no example">
+      <h4 class="ui header">
+        Form Settings
+      </h4>
+      <p>Form settings modify the form validation behavior</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>keyboardShortcuts</td>
+            <td>true</td>
+            <td>Adds keyboard shortcuts for enter and escape keys to submit form and blur fields respectively</td>
+          </tr>
+          <tr>
+            <td>on</td>
+            <td>submit</td>
+            <td>Event used to trigger validation. Can be either <b>submit</b>, <b>blur</b> or <b>change</b>.</td>
+          </tr>
+          <tr>
+            <td>revalidate</td>
+            <td>true</td>
+            <td>If set to true will revalidate fields with errors on input change</td>
+          </tr>
+          <tr>
+            <td>delay</td>
+            <td>true</td>
+            <td>Delay from last typed letter to validate a field when using <code>on: change</code> or when revalidating a field.</td>
+          </tr>
+          <tr>
+            <td>inline</td>
+            <td>false</td>
+            <td>Adds inline error on field validation error</td>
+          </tr>
+          <tr>
+            <td>transition</td>
+            <td>
+              scale
+            </td>
+            <td>Named transition to use when animating validation errors. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
+          </tr>
+          <tr>
+            <td>duration</td>
+            <td>150</td>
+            <td>Animation speed for inline prompt</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">
+        Callbacks
+      </h4>
+      <p>Callbacks specify a function to occur after a specific behavior.</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th class="four wide">Setting</th>
+          <th>Context</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>onValid</td>
+            <td>field</td>
+            <td>Callback on each valid field</td>
+          </tr>
+          <tr>
+            <td>onInvalid</td>
+            <td>field</td>
+            <td>Callback on each invalid field</td>
+          </tr>
+          <tr>
+            <td>onSuccess</td>
+            <td>form</td>
+            <td>Callback if a form is all valid</td>
+          </tr>
+          <tr>
+            <td>onFailure</td>
+            <td>form</td>
+            <td>Callback if any form field is invalid</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">
+        Templates
+      </h4>
+      <p>Templates are used to construct elements</p>
+      <div class="ui ignored info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return html.</div>
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th class="four wide">Template</th>
+          <th>Arguments</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>error</td>
+            <td>Errors (Array)</td>
+            <td>Constructs the contents of an error message</td>
+          </tr>
+          <tr>
+            <td>prompt</td>
+            <td>Errors (Array)</td>
+            <td>Constructs an element to prompt the user to an invalid field</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">
+        DOM Settings
+      </h4>
+      <p>DOM settings specify how this module should interface with the DOM</p>
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th>Setting</th>
+          <th class="six wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>namespace</td>
+            <td>form</td>
+            <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+          </tr>
+          <tr>
+            <td>selector</td>
+            <td>
+              <div class="code">
+        selector : {
+          message   : '.error.message',
+          field     : 'input, textarea, select',
+          group     : '.field',
+          input     : 'input',
+          prompt    : '.prompt',
+          submit    : '.submit'
+        }
+              </div>
+            </td>
+            <td>Selectors used to match functionality to DOM</td>
+          </tr>
+          <tr>
+            <td>metadata</td>
+            <td>
+              <div class="code">
+
+        metadata : {
+          validate: 'validate'
+        },
+              </div>
+            </td>
+            <td>
+            HTML5 metadata attributes
+            </td>
+          </tr>
+          <tr>
+            <td>className</td>
+            <td>
+              <div class="code">
+        className : {
+          active      : 'active',
+          placeholder : 'default',
+          disabled    : 'disabled',
+          visible     : 'visible'
+        }
+              </div>
+            </td>
+            <td>Class names used to attach style to state</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">
+        Debug Settings
+      </h4>
+      <p>Debug settings controls debug output to the console</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>Form</td>
+            <td>Name used in debug logs</td>
+          </tr>
+          <tr>
+            <td>debug</td>
+            <td>True</td>
+            <td>Provides standard debug output to console</td>
+          </tr>
+          <tr>
+            <td>performance</td>
+            <td>True</td>
+            <td>Provides standard debug output to console</td>
+          </tr>
+          <tr>
+            <td>verbose</td>
+            <td>True</td>
+            <td>Provides ancillary debug output to console</td>
+          </tr>
+          <tr>
+            <td>errors</td>
+            <td colspan="2">
+              <div class="code">
+        errors   : {
+          method   : 'The method you called is not defined.'
+        }
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+    </div>
+    <div class="ui inverted black footer vertical segment">
+  <div class="container">
+    <div class="ui stackable inverted divided relaxed grid">
+      <div class="eight wide column">
+        <h3 class="ui inverted header">Help Make Semantic UI Better</h3>
+        <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
+          <button type="submit" class="ui teal button">Donate Today</button>
+        </form>
+      </div>
+      <div class="four wide column">
+        <h5 class="ui teal inverted header">Contribute</h5>
+        <div class="ui inverted link list">
+          <a class="item" href="https://www.transifex.com/organization/semantic-org/" target="_blank">Translation Hub</a>
+          <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
+          <a class="item" href="/cla.html" target="_blank">CLA</a>
+          <a class="disabled item">Create Themes</a>
+        </div>
+      </div>
+      <div class="four wide column">
+        <h5 class="ui teal inverted header">Semantic Network</h5>
+        <div class="ui inverted link list">
+          <a class="item" href="http://legacy.semantic-ui.com">Legacy Docs</a>
+          <a class="item" href="http://www.learnsemantic.com">Learn Semantic</a>
+          <a class="disabled item">Semantic Themes</a>
+          <a class="disabled item">Semantic Layouts</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="ui basic language modal">
+  <i class="close icon"></i>
+  <div class="header">The <span class="name"></span> Translation Needs Your Help</div>
+  <div class="content">
+    <div class="middle aligned image">
+      <i class="world icon"></i>
+    </div>
+    <div class="description">
+      <p>This translation is only <b><span class="complete"></span>%</b> complete!</p>
+      <div class="ui inverted indicating progress">
+        <div class="bar"></div>
+      </div>
+      <p>We need your help to make Semantic available to  people who speak your language.</p>
+      <p>Our translation tools are easy to use and allow you to translate text without having to leave the site.
+      </p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui inverted cancel button">No Thanks</div>
+    <a href="https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs" target="_blank" class="ui inverted approve teal button">
+      <i class="mail icon"></i>
+      Help Translate
+    </a>
+  </div>
+</div>
+
+<div class="ui basic chinese modal">
+  <i class="close icon"></i>
+  <div class="header">Would you like to visit the mirror site?</div>
+  <div class="content">
+    <div class="middle aligned image">
+      <i class="question icon"></i>
+    </div>
+    <div class="description">
+      <p>Semantic is available at <a href="http://www.semantic-ui.cn">semantic-ui.cn</a> a mirror site hosted inside China. This should make browsing much faster for those visiting from mainland China.
+      </p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui inverted red cancel button">No Thanks</div>
+    <a href="http://www.semantic-ui.cn" class="ui inverted green approve button">
+      <i class="mail icon"></i>
+      Yes, take me to the mirror
+    </a>
+  </div>
+</div>
+  <div class="ui demo page dimmer">
+  <div class="content">
+    <div class="center">
+      <h2 class="ui inverted icon header">
+        <i class="mail icon"></i>
+        Dimmer Message
+        <div class="sub header">Dimmer sub-header</div>
+      </h2>
+    </div>
+  </div>
+</div>
+  <script>
+window.less = {
+  async        : true,
+  environment  : 'production',
+  fileAsync    : false,
+  onReady      : false,
+  useFileCache : true
+};
+</script>
+
+<script src="/javascript/library/less.min.js"></script>
+
+
+</body>
+
+</html>
